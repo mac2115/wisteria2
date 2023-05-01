@@ -12,6 +12,41 @@ getgenv().instantslayer = true
 getgenv().instantdemon = true
 getgenv().thunderbreathing = true
 getgenv().demonreroll = true
+getgenv().startervillage = true
+getgenv().slayerhq = true
+getgenv().butterfly = true
+
+
+function startervillage()
+if getgenv().startervillage == true then
+    
+
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(466, 6, 420)
+
+end
+end
+
+function slayerh()
+if getgenv().slayerhq == true then
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1508, 331, 1405)
+
+end
+end
+
+function butterfly()
+    if getgenv().butterfly == true then
+    
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1249, 325, -2840)
+    
+    end
+    end
+
+
+
+
+
+
 
 
 function rerolldemon()
@@ -238,10 +273,22 @@ Section:NewButton("Autofarm Agility", "Farms agility", function()
     
 end)
 
+local Tab = Window:NewTab(" Teleports")
+local Section = Tab:NewSection(" Teleports")
 
+Section:NewButton("Starter village tp", "Teleports to starter village", function()
+    startervillage()
 
+end)
 
+Section:NewButton("Slayer HeadQuarters tp", "Teleports to Slayer HeadQuarters", function()
+    slayerh()
 
+end)
+
+Section:NewButton("Butterfly estate tp", "Teleports to Butterfly estate", function()
+    butterfly()
+end)
 
 
 
