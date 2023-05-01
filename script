@@ -8,6 +8,22 @@ getgenv().wipe = true
 getgenv().agilityfarm =true
 getgenv().agilitytp1 = true
 getgenv().instantnichirin = true
+getgenv().instantslayer = true
+
+
+function finalselectiontp()
+spawn(function()
+if getgenv().instantslayer == true then
+   
+    
+game:GetService("TeleportService"):Teleport(11754723819)
+
+
+
+end
+end)
+end
+
 
 function nichirn()
 spawn(function()
@@ -162,14 +178,14 @@ Section:NewButton("Autofarm Agility", "Farms agility", function()
 end)
 
 
-
 local Tab = Window:NewTab("Teleports")
 local Section = Tab:NewSection("Teleports")
 Section:NewButton("Final Selection tp", "Godmode", function()
-    
+    finalselectiontp()
     
 end)
-Section:NewButton("Prison of demons teleport(must be a slayer)", "Godmode", function()
+
+Section:NewButton("Prison of demons teleport(must be a slayer)", "Tps you to arena promotion place", function()
     prisonofdemons()
 
 end)
@@ -194,5 +210,6 @@ Section:NewButton("Instant nichirin", "Gives nichirin instantly", function()
    nichirn()
     
 end)
+
 
 
