@@ -1,0 +1,124 @@
+getgenv().farm = true
+getgenv().tp = true
+getgenv().Moneyfarm = true
+getgenv().godmode = true
+getgenv().prisonofdemons = true
+
+
+
+
+function prisonofdemons()
+if getgenv().prisonofdemons ==true then 
+
+    game:GetService("TeleportService"):Teleport(12851235043)
+
+     end
+end
+
+
+
+
+
+
+
+function strenghtp()
+    spawn(function()
+        while getgenv(state).tp do task.wait()
+    
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1205, 325, -2711)
+
+        end
+        end)
+    end
+
+function strenghtfarm()
+spawn(function()
+
+while getgenv().farm do task.wait()
+    local ohTable1 = {
+        ["Type"] = "End",
+        ["Npc"] = workspace.Npcs.Jin,
+        ["Path"] = "Strength"
+    }
+
+   game:GetService("ReplicatedStorage").Events.Dialogue:FireServer(ohTable1)
+   
+end
+end)
+end
+
+function moneyexp ()
+    spawn(function()
+while getgenv().Moneyfarm == true do task.wait()
+    game:GetService("ReplicatedStorage").Events.Dialogue:FireServer({
+        ["Type"] = "End",
+        ["Npc"] = workspace.Npcs.Mita,
+        ["Path"] = "Accept"
+    })
+game:GetService("ReplicatedStorage").Events.Dialogue:FireServer({
+        ["Type"] = "End",
+        ["Npc"] = workspace.Npcs:FindFirstChild("Saru Kenshi"),
+        ["Path"] = "SetSpawn"
+    })
+end
+end)
+end
+
+function godmode()
+if getgenv().godmode == true then
+    game:GetService("Players").LocalPlayer.Character.Effects.Attackers:Destroy()
+
+end
+end
+
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+local Window = Library.CreateLib("Wisteria 2 farms", "DarkTheme")
+
+local Tab = Window:NewTab("Farms")
+local Section = Tab:NewSection("Autofarm")
+
+Section:NewButton("Teleport first before clicking autofarm", "Teleports you to autofarm spot", function()
+    strenghtp()
+    
+end)
+
+Section:NewButton("Autofarm strenght", "Strenght", function()
+    strenghtfarm()
+    
+end)
+
+Section:NewButton("Autofarm money and exp", "Strenght", function()
+    moneyexp()
+    
+end)
+local Tab = Window:NewTab("Teleports")
+local Section = Tab:NewSection("Teleports")
+Section:NewButton("Final Selection tp", "Godmode", function()
+    
+    
+end)
+Section:NewButton("Prison of demons teleport(must be a slayer)", "Godmode", function()
+    prisonofdemons()
+
+end)
+
+
+
+
+
+
+local Tab = Window:NewTab("Misc")
+local Section = Tab:NewSection("Player related")
+
+Section:NewButton("Godmode", "Godmode", function()
+    godmode()
+    
+end)
+
+
+
+
+
+
