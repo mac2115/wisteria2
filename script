@@ -10,12 +10,11 @@ getgenv().agilitytp1 = true
 getgenv().instantnichirin = true
 getgenv().instantslayer = true
 getgenv().instantdemon = true
-getgenv().thunderbreathing = true
 getgenv().demonreroll = true
 getgenv().startervillage = true
 getgenv().slayerhq = true
 getgenv().butterfly = true
-getgenv().beforethunder = true
+
 
 function startervillage()
 if getgenv().startervillage == true then
@@ -46,9 +45,6 @@ function butterfly()
 
 
 
-
-
-
 function rerolldemon()
 spawn(function()
 if getgenv().demonreroll == true then 
@@ -67,44 +63,6 @@ end
 end)
 end
 
-function beforethunder()
-spawn(function()
-if getgenv().beforethunder ==true then
-local args = {
-    [1] = {
-        ["Type"] = "Continue",
-        ["Npc"] = workspace.Npcs.Daichi,
-        ["Path"] = "FPath5"
-    }
-}
-
-game:GetService("ReplicatedStorage").Events.Dialogue:FireServer(unpack(args))
-
-end
-end)
-end
-
-
-
-function thunder()
-spawn (function()
-if getgenv().thunderbreathing == trie then
-    
-
-
-local args = {
-    [1] = {
-        ["Type"] = "End",
-        ["Npc"] = workspace.Npcs.Daichi,
-        ["Path"] = "RepTab"
-    }
-}
-
-game:GetService("ReplicatedStorage").Events.Dialogue:FireServer(unpack(args))
-    
-end
-end)
-end
 
 
 function demoninstant()
@@ -357,13 +315,3 @@ Section:NewButton("Instant become demon", "Become demon instantly", function()
      
  end)
 
- Section:NewButton("Click this before instant thunder", "Required to use auto thunder", function()
-    beforethunder()
-     
- end)
-
-
- Section:NewButton("Instant thunder breathing", "Get thunder breathing quickly", function()
-    thunder()
-     
- end)
