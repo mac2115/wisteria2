@@ -3,8 +3,35 @@ getgenv().tp = true
 getgenv().Moneyfarm = true
 getgenv().godmode = true
 getgenv().prisonofdemons = true
+getgenv().walkspeed = true
+getgenv().jumpower = true
 
 
+local player = game.Player.LocalPlayer
+local char = player.Character
+local humanoid = char:WaitForChild("Humanoid")
+
+function walkspeed()
+    spawn (function()
+        if getgenv().walkspeed == true then
+    humanoid.WalkSpeed = 150
+    
+    end
+    end)
+    end
+
+function jump()
+    spawn (function()
+if getgenv().jumpower == true then
+
+    humanoid.Jumpower = 150
+
+
+
+
+    end
+    end)
+end
 
 
 function prisonofdemons()
@@ -14,7 +41,6 @@ if getgenv().prisonofdemons ==true then
 
      end
 end
-
 
 
 
@@ -117,8 +143,14 @@ Section:NewButton("Godmode", "Godmode", function()
     
 end)
 
+Section:NewButton("WalkSpeed", "Godmode", function()
+    walkspeed()
+    
+end)
 
+Section:NewButton("Jumppower", "Godmode", function()
+   jump()
 
-
+end)
 
 
