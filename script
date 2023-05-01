@@ -1,9 +1,13 @@
 getgenv().farm = true
+getgenv().farm2 = true
 getgenv().tp = true
 getgenv().Moneyfarm = true
 getgenv().godmode = true
 getgenv().prisonofdemons = true
 getgenv().wipe = true
+getgenv().agilityfarm =true
+getgenv().agilitytp1 = true
+
 
 
 function wipe()
@@ -22,19 +26,48 @@ if getgenv().prisonofdemons ==true then
 end
 
 
-
-
-
-
 function strenghtp()
     spawn(function()
-        while getgenv(state).tp do task.wait()
+        while getgenv().tp do task.wait()
     
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1205, 325, -2711)
 
         end
         end)
     end
+
+
+function agilitytp()
+spawn(function()
+while getgenv().agilitytp1 do task.wait()
+   
+    
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1451, 301, -1589)
+
+end
+end)
+end
+
+
+function agilityfarm()
+    spawn(function()
+    
+    while getgenv().farm2 do task.wait()
+        local args = {
+            [1] = {
+                ["Type"] = "End",
+                ["Npc"] = workspace.Npcs.Jin,
+                ["Path"] = "Agility"
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.Dialogue:FireServer(unpack(args))
+       
+    end
+    end)
+    end
+
+
 
 function strenghtfarm()
 spawn(function()
@@ -84,20 +117,34 @@ local Window = Library.CreateLib("Wisteria 2 farms", "DarkTheme")
 local Tab = Window:NewTab("Farms")
 local Section = Tab:NewSection("Autofarm")
 
-Section:NewButton("Teleport first before clicking autofarm", "Teleports you to autofarm spot", function()
+Section:NewButton("Teleport first before clicking autofarm strenght", "Teleports you to autofarm spot", function()
     strenghtp()
     
 end)
 
-Section:NewButton("Autofarm strenght", "Strenght", function()
+Section:NewButton("Autofarm strenght", "Farms Strenght", function()
     strenghtfarm()
     
 end)
 
-Section:NewButton("Autofarm money and exp", "Strenght", function()
+Section:NewButton("Autofarm money and exp", "Farms money and exp", function()
     moneyexp()
     
 end)
+
+Section:NewButton("Teleport first before clicking autofarm agility", "Teleports you to autofarm spot", function()
+    agilitytp()
+    
+end)
+
+
+Section:NewButton("Autofarm Agility", "Farms agility", function()
+    agilityfarm()
+    
+end)
+
+
+
 local Tab = Window:NewTab("Teleports")
 local Section = Tab:NewSection("Teleports")
 Section:NewButton("Final Selection tp", "Godmode", function()
