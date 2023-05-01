@@ -3,34 +3,13 @@ getgenv().tp = true
 getgenv().Moneyfarm = true
 getgenv().godmode = true
 getgenv().prisonofdemons = true
-getgenv().walkspeed = true
-getgenv().jumpower = true
+getgenv().wipe = true
 
 
-local player = game.Player.LocalPlayer
-local char = player.Character
-local humanoid = char:WaitForChild("Humanoid")
-
-function walkspeed()
-    spawn (function()
-        if getgenv().walkspeed == true then
-    humanoid.WalkSpeed = 150
-    
-    end
-    end)
-    end
-
-function jump()
-    spawn (function()
-if getgenv().jumpower == true then
-
-    humanoid.Jumpower = 150
-
-
-
-
-    end
-    end)
+function wipe()
+if getgenv().wipe == true then
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer()
+end
 end
 
 
@@ -131,7 +110,10 @@ Section:NewButton("Prison of demons teleport(must be a slayer)", "Godmode", func
 end)
 
 
+Section:NewButton("Wipe tp (must be in main menu)", "Wipes your story quests", function()
+    wipe()
 
+end)
 
 
 
@@ -143,14 +125,6 @@ Section:NewButton("Godmode", "Godmode", function()
     
 end)
 
-Section:NewButton("WalkSpeed", "Godmode", function()
-    walkspeed()
-    
-end)
 
-Section:NewButton("Jumppower", "Godmode", function()
-   jump()
-
-end)
 
 
