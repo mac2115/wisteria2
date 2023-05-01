@@ -7,7 +7,25 @@ getgenv().prisonofdemons = true
 getgenv().wipe = true
 getgenv().agilityfarm =true
 getgenv().agilitytp1 = true
+getgenv().instantnichirin = true
 
+function nichirn()
+spawn(function()
+if getgenv().instantnichirin ==true then
+    
+local args = {
+    [1] = {
+        ["Type"] = "End",
+        ["Npc"] = workspace.Npcs.Akihito,
+        ["Path"] = "FQuest3"
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.Dialogue:FireServer(unpack(args))
+
+end
+end)
+end
 
 
 function wipe()
@@ -172,6 +190,9 @@ Section:NewButton("Godmode", "Godmode", function()
     
 end)
 
-
+Section:NewButton("Instant nichirin", "Gives nichirin instantly", function()
+   nichirn()
+    
+end)
 
 
