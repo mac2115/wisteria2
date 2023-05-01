@@ -9,6 +9,29 @@ getgenv().agilityfarm =true
 getgenv().agilitytp1 = true
 getgenv().instantnichirin = true
 getgenv().instantslayer = true
+getgenv().instantdemon = true
+
+
+
+
+function demoninstant()
+spawn(function()
+if getgenv().instantdemon == true then
+
+local args = {
+    [1] = {
+        ["Type"] = "End",
+        ["Npc"] = workspace.Npcs:FindFirstChild("Machigai Tenshi"),
+        ["Path"] = "DPath7"
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.Dialogue:FireServer(unpack(args))
+
+end
+end)
+end
+
 
 
 function finalselectiontp()
@@ -146,7 +169,7 @@ end
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 
-local Window = Library.CreateLib("Wisteria 2 farms", "DarkTheme")
+local Window = Library.CreateLib("Wisteria 2 farms - Made by Mac#0014", "DarkTheme")
 
 local Tab = Window:NewTab("Farms")
 local Section = Tab:NewSection("Autofarm")
@@ -197,7 +220,6 @@ Section:NewButton("Wipe tp (must be in main menu)", "Wipes your story quests", f
 end)
 
 
-
 local Tab = Window:NewTab("Misc")
 local Section = Tab:NewSection("Player related")
 
@@ -212,4 +234,7 @@ Section:NewButton("Instant nichirin", "Gives nichirin instantly", function()
 end)
 
 
-
+Section:NewButton("Instant become demon", "Become demon instantly", function()
+    demoninstant()
+     
+ end)
