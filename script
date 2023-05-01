@@ -15,7 +15,7 @@ getgenv().demonreroll = true
 getgenv().startervillage = true
 getgenv().slayerhq = true
 getgenv().butterfly = true
-
+getgenv().beforethunder = true
 
 function startervillage()
 if getgenv().startervillage == true then
@@ -67,10 +67,30 @@ end
 end)
 end
 
+function beforethunder()
+spawn(function()
+if getgenv().beforethunder ==true then
+local args = {
+    [1] = {
+        ["Type"] = "Continue",
+        ["Npc"] = workspace.Npcs.Daichi,
+        ["Path"] = "FPath5"
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.Dialogue:FireServer(unpack(args))
+
+end
+end)
+end
+
+
+
 function thunder()
 spawn (function()
 if getgenv().thunderbreathing == trie then
     
+
 
 local args = {
     [1] = {
@@ -334,6 +354,11 @@ Section:NewButton("Instant become demon", "Become demon instantly", function()
 
  Section:NewButton("Reroll demon type", "Rerolls your demon type", function()
     rerolldemon()
+     
+ end)
+
+ Section:NewButton("Click this before instant thunder", "Required to use auto thunder", function()
+    beforethunder()
      
  end)
 
