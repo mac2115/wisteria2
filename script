@@ -14,6 +14,81 @@ getgenv().demonreroll = true
 getgenv().startervillage = true
 getgenv().slayerhq = true
 getgenv().butterfly = true
+getgenv().smallgourd = true
+getgenv().mediumgourd = true
+getgenv().largegourd = true
+
+
+
+function smallgourd()
+    if getgenv().smallgourd ==true then
+        
+local args = {
+    [1] = {
+        ["Type"] = "End",
+        ["Npc"] = workspace.Npcs.Jin,
+        ["Path"] = "Small Gourd"
+    }
+}
+game:GetService("ReplicatedStorage").Events.Dialogue:FireServer(unpack(args))
+
+
+    end
+
+
+end
+
+function mediumgourd()
+    if getgenv().mediumgourd ==true then
+        
+local args = {
+    [1] = {
+        ["Type"] = "End",
+        ["Npc"] = workspace.Npcs.Jin,
+        ["Path"] = "Medium Gourd"
+    }
+}
+game:GetService("ReplicatedStorage").Events.Dialogue:FireServer(unpack(args))
+
+
+    end
+
+
+end
+
+
+function largegourd()
+    if getgenv().largegourd ==true then
+        
+local args = {
+    [1] = {
+        ["Type"] = "End",
+        ["Npc"] = workspace.Npcs.Jin,
+        ["Path"] = "Large Gourd"
+    }
+}
+game:GetService("ReplicatedStorage").Events.Dialogue:FireServer(unpack(args))
+
+
+    end
+
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function startervillage()
@@ -290,7 +365,6 @@ end)
 
 
 
-
 local Tab = Window:NewTab("Misc")
 local Section = Tab:NewSection("Player related")
 
@@ -315,3 +389,21 @@ Section:NewButton("Instant become demon", "Become demon instantly", function()
      
  end)
 
+ local Tab = Window:NewTab("Shops")
+ local Section = Tab:NewSection("Shop")
+
+ Section:NewButton("Small gourd", "Buys small gourd", function()
+   smallgourd()
+     
+ end)
+
+ Section:NewButton("Medium gourd", "Buys Medium gourd", function()
+    mediumgourd()
+      
+  end)
+
+
+  Section:NewButton("Large gourd", "Buys Large gourd", function()
+    largegourd()
+      
+  end)
