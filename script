@@ -127,7 +127,7 @@ Section:NewButton("Autofarm strenght", "Farms Strenght", function()
     
 end)
 
-Section:NewButton("Autofarm money and exp", "Farms money and exp", function()
+Section:NewButton("Autofarm money and exp(you need 50 cash)", "Farms money and exp", function()
     moneyexp()
     
 end)
