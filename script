@@ -10,8 +10,46 @@ getgenv().agilitytp1 = true
 getgenv().instantnichirin = true
 getgenv().instantslayer = true
 getgenv().instantdemon = true
+getgenv().thunderbreathing = true
+getgenv().demonreroll = true
 
 
+function rerolldemon()
+spawn(function()
+if getgenv().demonreroll == true then 
+
+local args = {
+    [1] = {
+        ["Type"] = "End",
+        ["Npc"] = workspace.Npcs:FindFirstChild("Machigai Tenshi"),
+        ["Path"] = "DPath7"
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.Dialogue:FireServer(unpack(args))
+
+end
+end)
+end
+
+function thunder()
+spawn (function()
+if getgenv().thunderbreathing == trie then
+    
+
+local args = {
+    [1] = {
+        ["Type"] = "End",
+        ["Npc"] = workspace.Npcs.Daichi,
+        ["Path"] = "RepTab"
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.Dialogue:FireServer(unpack(args))
+    
+end
+end)
+end
 
 
 function demoninstant()
@@ -201,8 +239,14 @@ Section:NewButton("Autofarm Agility", "Farms agility", function()
 end)
 
 
-local Tab = Window:NewTab("Teleports")
-local Section = Tab:NewSection("Teleports")
+
+
+
+
+
+
+local Tab = Window:NewTab("Game Teleports")
+local Section = Tab:NewSection("Game Teleports")
 Section:NewButton("Final Selection tp", "Godmode", function()
     finalselectiontp()
     
@@ -218,6 +262,8 @@ Section:NewButton("Wipe tp (must be in main menu)", "Wipes your story quests", f
     wipe()
 
 end)
+
+
 
 
 local Tab = Window:NewTab("Misc")
@@ -236,5 +282,16 @@ end)
 
 Section:NewButton("Instant become demon", "Become demon instantly", function()
     demoninstant()
+     
+ end)
+
+ Section:NewButton("Reroll demon type", "Rerolls your demon type", function()
+    rerolldemon()
+     
+ end)
+
+
+ Section:NewButton("Instant thunder breathing", "Get thunder breathing quickly", function()
+    thunder()
      
  end)
